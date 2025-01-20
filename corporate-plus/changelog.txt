@@ -1,5 +1,9 @@
 == Change log ==
 
+= 3.0.9 - Jan 20 2025 =
+* Added: Enhanced support for the latest WordPress version.
+* Updated: Improved CSS compatibility.
+
 = 3.0.8 - April 09 2024 =
 * Updated: WordPress latest compatibility
 * Updated: CSS combatibility
