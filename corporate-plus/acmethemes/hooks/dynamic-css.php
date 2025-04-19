@@ -6,35 +6,33 @@
  *
  * @param null
  * @return null
- *
  */
 if ( ! function_exists( 'corporate_plus_dynamic_css' ) ) :
 
-    function corporate_plus_dynamic_css() {
+	function corporate_plus_dynamic_css() {
 
-        global $corporate_plus_customizer_all_values;
-        /*Color options */
-        $corporate_plus_primary_color = esc_attr( $corporate_plus_customizer_all_values['corporate-plus-primary-color'] );
-	    /*animation*/
-	    $corporate_plus_enable_animation = $corporate_plus_customizer_all_values['corporate-plus-enable-animation'];
-        $custom_css = '';
+		$corporate_plus_customizer_all_values = corporate_plus_get_theme_options();
+		/*Color options */
+		$corporate_plus_primary_color = esc_attr( $corporate_plus_customizer_all_values['corporate-plus-primary-color'] );
+		/*animation*/
+		$corporate_plus_enable_animation = $corporate_plus_customizer_all_values['corporate-plus-enable-animation'];
+		$custom_css                      = '';
 
-        /*background*/
-        if( get_header_image() ){
-            $bg_image_url = get_header_image();
-        }
-        else{
-            $bg_image_url =   get_template_directory_uri()."/assets/img/startup-slider.jpg";
-        }
-        $custom_css .= "
+		/*background*/
+		if ( get_header_image() ) {
+			$bg_image_url = get_header_image();
+		} else {
+			$bg_image_url = get_template_directory_uri() . '/assets/img/startup-slider.jpg';
+		}
+		$custom_css .= "
               .inner-main-title {
                 background-image:url('{$bg_image_url}');
                 background-repeat:no-repeat;
                 background-size:cover;
                 background-attachment:fixed;
             }";
-        /*color*/
-        $custom_css .= "
+		/*color*/
+		$custom_css .= "
             a:hover,
             a:active,
             a:focus,
@@ -63,8 +61,8 @@ if ( ! function_exists( 'corporate_plus_dynamic_css' ) ) :
                 color: {$corporate_plus_primary_color};
             }";
 
-        /*background color*/
-        $custom_css .= "
+		/*background color*/
+		$custom_css .= "
             .navbar .navbar-toggle:hover,
             .navbar .navbar-toggle:focus,
             .main-navigation .acme-normal-page .current_page_item > a:before,
@@ -95,14 +93,14 @@ if ( ! function_exists( 'corporate_plus_dynamic_css' ) ) :
                 background-color: {$corporate_plus_primary_color};
             }";
 
-        /*borders*/
-        $custom_css .= "
+		/*borders*/
+		$custom_css .= "
             .blog article.sticky,
             .btn-primary:before{
                 border: 2px solid {$corporate_plus_primary_color};
             }";
 
-        $custom_css .= "
+		$custom_css .= "
             .comment-form .form-submit input,
             .read-more,
             .at-woo .user-login .button,
@@ -110,36 +108,36 @@ if ( ! function_exists( 'corporate_plus_dynamic_css' ) ) :
                 border: 1px solid {$corporate_plus_primary_color};
             }";
 
-        $custom_css .= "
+		$custom_css .= "
             .wpcf7-form input.wpcf7-submit::before {
                 border: 4px solid {$corporate_plus_primary_color};
             }";
 
-        $custom_css .= "
+		$custom_css .= "
              .breadcrumb::after {
                 border-left: 5px solid {$corporate_plus_primary_color};
             }";
 
-        $custom_css .= "
+		$custom_css .= "
             .rtl .breadcrumb::after {
                 border-right: 5px solid {$corporate_plus_primary_color};
                 border-left: medium none;
             }";
 
-        /*animation*/
-	    if( 1 == $corporate_plus_enable_animation ){
-		    $custom_css .= "
+		/*animation*/
+		if ( 1 == $corporate_plus_enable_animation ) {
+			$custom_css .= '
             .init-animate {
                 visibility: visible;
             }
-            ";
-	    }
-        /*custom css*/
-        $corporate_plus_custom_css = wp_strip_all_tags ( $corporate_plus_customizer_all_values['corporate-plus-custom-css'] );
-        if ( ! empty( $corporate_plus_custom_css ) ) {
-            $custom_css .= $corporate_plus_custom_css;
-        }
-        wp_add_inline_style( 'corporate-plus-style', $custom_css );
-    }
+            ';
+		}
+		/*custom css*/
+		$corporate_plus_custom_css = wp_strip_all_tags( $corporate_plus_customizer_all_values['corporate-plus-custom-css'] );
+		if ( ! empty( $corporate_plus_custom_css ) ) {
+			$custom_css .= $corporate_plus_custom_css;
+		}
+		wp_add_inline_style( 'corporate-plus-style', $custom_css );
+	}
 endif;
 add_action( 'wp_enqueue_scripts', 'corporate_plus_dynamic_css', 99 );

@@ -1,5 +1,10 @@
 == Change log ==
 
+= 3.1.0 - Apr 20 2025 =
+* Added: Tested with the latest WordPress.
+* Added: Static caching mechanism for theme options to improve performance.
+* Fixed: Resolved issue with translation function preload
+
 = 3.0.9 - Jan 20 2025 =
 * Added: Enhanced support for the latest WordPress version.
 * Updated: Improved CSS compatibility.

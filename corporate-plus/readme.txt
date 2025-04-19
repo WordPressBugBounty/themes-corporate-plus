@@ -3,9 +3,9 @@
 Contributors: acmethemes
 Tags: e-commerce, portfolio, education, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, footer-widgets, featured-images, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least : 5.0
-Tested up to : 6.7
+Tested up to : 6.8
 Requires PHP: 5.6.20
-Stable tag : 3.0.9
+Stable tag : 3.1.0
 License : GPLv2 or later
 License URI : http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,11 @@ The exceptions to license are as follows:
 * contact-bg : https://pixabay.com/en/continents-earth-globe-global-695189/  License CC0 Public Domain
 
 == Change log ==
+
+= 3.1.0 - Apr 20 2025 =
+* Added: Tested with the latest WordPress.
+* Added: Static caching mechanism for theme options to improve performance.
+* Fixed: Resolved issue with translation function preload
 
 = 3.0.9 - Jan 20 2025 =
 * Added: Enhanced support for the latest WordPress version.

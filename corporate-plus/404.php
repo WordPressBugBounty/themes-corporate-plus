@@ -8,7 +8,7 @@
  * @subpackage Corporate Plus
  */
 get_header();
-global $corporate_plus_customizer_all_values;
+$corporate_plus_customizer_all_values = corporate_plus_get_theme_options();
 ?>
 <div class="wrapper inner-main-title">
 	<header>
@@ -17,7 +17,7 @@ global $corporate_plus_customizer_all_values;
 </div>
 <div id="content" class="site-content">
 	<?php
-	if( 1 == $corporate_plus_customizer_all_values['corporate-plus-show-breadcrumb'] ){
+	if ( 1 == $corporate_plus_customizer_all_values['corporate-plus-show-breadcrumb'] ) {
 		corporate_plus_breadcrumbs();
 	}
 	?>
@@ -33,4 +33,5 @@ global $corporate_plus_customizer_all_values;
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();

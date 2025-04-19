@@ -13,7 +13,7 @@
  * @subpackage Corporate Plus
  */
 get_header();
-global $corporate_plus_customizer_all_values;
+$corporate_plus_customizer_all_values = corporate_plus_get_theme_options();
 ?>
 <div class="wrapper inner-main-title">
 	<header class="entry-header">
@@ -22,18 +22,19 @@ global $corporate_plus_customizer_all_values;
 </div>
 <div id="content" class="site-content">
 	<?php
-	if( 1 == $corporate_plus_customizer_all_values['corporate-plus-show-breadcrumb'] ){
+	if ( 1 == $corporate_plus_customizer_all_values['corporate-plus-show-breadcrumb'] ) {
 		corporate_plus_breadcrumbs();
 	}
-	$sidebar_layout = corporate_plus_sidebar_selection(get_the_ID());
-	if( 'both-sidebar' == $sidebar_layout ) {
+	$sidebar_layout = corporate_plus_sidebar_selection( get_the_ID() );
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '<div id="primary-wrap" class="clearfix">';
 	}
 	?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<?php
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
+				the_post();
 				get_template_part( 'template-parts/content', 'page' );
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
@@ -46,9 +47,10 @@ global $corporate_plus_customizer_all_values;
 <?php
 get_sidebar( 'left' );
 get_sidebar();
-if( 'both-sidebar' == $sidebar_layout ) {
+if ( 'both-sidebar' == $sidebar_layout ) {
 	echo '</div>';
 }
 ?>
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();
